@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.web.reactive.function.server.RouterFunction
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.router
+import java.util.UUID
 
 @Configuration
 class AWSTestActionRoutingConfiguration {
@@ -13,7 +14,7 @@ class AWSTestActionRoutingConfiguration {
     fun awsTestActionRouter(): RouterFunction<ServerResponse> =
         router {
             GET("/test") { req ->
-                ServerResponse.ok().bodyValue(mapOf("result" to "ok"))
+                ServerResponse.ok().bodyValue(mapOf("result" to "ok", "uuid" to UUID.randomUUID().toString()))
             }
         }
 }
