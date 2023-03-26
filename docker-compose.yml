@@ -1,0 +1,7 @@
+version: '2'
+services:
+  message-server:
+    container_name: aws-test
+    image: aws-test:latest
+    ports:
+      - "8080:8080"
